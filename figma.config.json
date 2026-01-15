@@ -1,0 +1,39 @@
+{
+  "figma": {
+    "/**": "Figma Code Connect Configuration",
+    "/**_docs": "https://www.figma.com/developers/api#library-analytics",
+    
+    "parser": "react",
+    "include": ["src/components/**/*.tsx"],
+    "exclude": ["src/components/**/index.ts"],
+    
+    "/**_mappings": "Define mappings between Figma component names and code components",
+    "mappings": {
+      "Accordion": {
+        "component": "./src/components/Accordion/Accordion.tsx",
+        "figmaNodeId": "",
+        "storybook": "Components/Accordion"
+      },
+      "Button": {
+        "component": "./src/components/Button/Button.tsx",
+        "figmaNodeId": "",
+        "storybook": "Components/Button"
+      },
+      "Card": {
+        "component": "./src/components/Card/Card.tsx",
+        "figmaNodeId": "",
+        "storybook": "Components/Card"
+      },
+      "Form": {
+        "component": "./src/components/Form/Form.tsx",
+        "figmaNodeId": "",
+        "storybook": "Components/Form"
+      },
+      "Toast": {
+        "component": "./src/components/Toast/Toast.tsx",
+        "figmaNodeId": "",
+        "storybook": "Components/Toast"
+      }
+    }
+  }
+}
