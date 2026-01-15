@@ -44,8 +44,14 @@ const App: React.FC = () => {
   );
 };
 
-// Render the app
-const root = ReactDOM.createRoot(document.getElementById('root')!);
-root.render(<App />);
+// Only render if we're in a browser environment (not Storybook)
+const rootElement = document.getElementById('root');
+if (rootElement) {
+  ReactDOM.createRoot(rootElement).render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  );
+}
 
 export default App;
