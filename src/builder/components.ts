@@ -48,6 +48,8 @@ Builder.registerComponent(Accordion, {
       helperText: 'ID of the item to expand by default',
     },
   ],
+  noWrap: false,
+  canHaveChildren: false,
 });
 
 // Register Button Component
@@ -83,11 +85,15 @@ Builder.registerComponent(Button, {
       defaultValue: false,
     },
   ],
+  noWrap: false,
+  canHaveChildren: false,
 });
 
 // Register Card Component
 Builder.registerComponent(Card, {
   name: 'Card',
+  noWrap: false,
+  canHaveChildren: true,
   inputs: [
     {
       name: 'title',
@@ -125,6 +131,8 @@ Builder.registerComponent(Card, {
 // Register Form Component
 Builder.registerComponent(Form, {
   name: 'Form',
+  noWrap: false,
+  canHaveChildren: true,
   inputs: [
     {
       name: 'title',
@@ -171,6 +179,8 @@ Builder.registerComponent(Form, {
 // Register Toast Component
 Builder.registerComponent(Toast, {
   name: 'Toast',
+  noWrap: false,
+  canHaveChildren: false,
   inputs: [
     {
       name: 'open',
