@@ -1,6 +1,8 @@
 import type { Preview } from '@storybook/react-vite';
 import React from 'react';
 import { ThemeProvider, CssBaseline, createTheme } from '@mui/material';
+import '../src/builder/init';
+import '../src/builder/components';
 
 // Your custom dark theme based on MUI
 const darkTheme = createTheme({
