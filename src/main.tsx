@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom/client';
 import { FusionProvider, FusionContent } from './fusion';
 import { Box, Typography, Container, Button as MuiButton } from '@mui/material';
 
@@ -42,5 +43,9 @@ const App: React.FC = () => {
     </FusionProvider>
   );
 };
+
+// Render the app
+const root = ReactDOM.createRoot(document.getElementById('root')!);
+root.render(<App />);
 
 export default App;
