@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
 import { FusionProvider, FusionContent } from './fusion';
 import { Box, Typography, Container, Button as MuiButton } from '@mui/material';
 
@@ -43,16 +42,5 @@ const App: React.FC = () => {
     </FusionProvider>
   );
 };
-
-// Only render if we're in a browser environment and root hasn't been created
-const rootElement = document.getElementById('root');
-if (rootElement && !(rootElement as any)._reactRootContainer) {
-  const root = ReactDOM.createRoot(rootElement);
-  root.render(
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  );
-}
 
 export default App;
