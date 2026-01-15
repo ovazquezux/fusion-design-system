@@ -44,10 +44,11 @@ const App: React.FC = () => {
   );
 };
 
-// Only render if we're in a browser environment (not Storybook)
+// Only render if we're in a browser environment and root hasn't been created
 const rootElement = document.getElementById('root');
-if (rootElement) {
-  ReactDOM.createRoot(rootElement).render(
+if (rootElement && !(rootElement as any)._reactRootContainer) {
+  const root = ReactDOM.createRoot(rootElement);
+  root.render(
     <React.StrictMode>
       <App />
     </React.StrictMode>
