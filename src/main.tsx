@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { FusionProvider, FusionContent } from './fusion';
-import { Box, Typography, Container } from '@mui/material';
+import { Box, Typography, Container, Button as MuiButton } from '@mui/material';
 
-// Import Builder.io registered components
+// Import Builder.io initialization and components
+import './builder/init';
 import './builder/components';
 
 const App: React.FC = () => {
@@ -24,9 +25,16 @@ const App: React.FC = () => {
             theme="dark"
             fallback={
               <Box sx={{ py: 4, textAlign: 'center' }}>
-                <Typography color="text.secondary">
+                <Typography color="text.secondary" paragraph>
                   No Fusion content found. Import a Figma design from Builder.io.
                 </Typography>
+                <MuiButton 
+                  variant="contained" 
+                  href="http://localhost:6006"
+                  target="_blank"
+                >
+                  View Storybook Components
+                </MuiButton>
               </Box>
             }
           />
