@@ -3,6 +3,7 @@ import { Accordion } from '../components/Accordion';
 import { Button } from '../components/Button';
 import { Card } from '../components/Card';
 import { Form } from '../components/Form';
+import { Login } from '../components/Login';
 import { Toast } from '../components/Toast';
 
 /**
@@ -176,6 +177,21 @@ Builder.registerComponent(Form, {
   ],
 });
 
+// Register Login Component
+Builder.registerComponent(Login, {
+  name: 'Login',
+  noWrap: false,
+  canHaveChildren: false,
+  inputs: [
+    {
+      name: 'showLogo',
+      type: 'boolean',
+      defaultValue: true,
+      helperText: 'Show or hide the Arcos logo',
+    },
+  ],
+});
+
 // Register Toast Component
 Builder.registerComponent(Toast, {
   name: 'Toast',
@@ -208,4 +224,4 @@ Builder.registerComponent(Toast, {
   ],
 });
 
-export { Accordion, Button, Card, Form, Toast };
+export { Accordion, Button, Card, Form, Login, Toast };
