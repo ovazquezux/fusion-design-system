@@ -1,42 +1,50 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { FusionProvider, FusionContent } from './fusion';
-import { Box, Typography, Container, Button as MuiButton } from '@mui/material';
+import { FusionProvider } from './fusion';
+import { Box, Container } from '@mui/material';
+import { Login } from './components/Login';
 
 // Import Builder.io initialization and components
 import './builder/init';
 import './builder/components';
 
 const App: React.FC = () => {
+  const handleLogin = (email: string, password: string) => {
+    console.log('Login attempt:', { email, password });
+    // Add your login logic here
+    alert(`Login with: ${email}`);
+  };
+
+  const handleCreateAccount = () => {
+    console.log('Create account clicked');
+    // Add your create account navigation logic here
+    alert('Navigating to create account page...');
+  };
+
+  const handleForgotPassword = () => {
+    console.log('Forgot password clicked');
+    // Add your forgot password logic here
+    alert('Opening password reset dialog...');
+  };
+
   return (
     <FusionProvider theme="dark">
-      <Container maxWidth="lg">
-        <Box sx={{ py: 4 }}>
-          <Typography variant="h3" gutterBottom>
-            Fusion Design System
-          </Typography>
-          <Typography variant="body1" color="text.secondary" paragraph>
-            Import your Figma designs through Builder.io Fusion
-          </Typography>
-          
-          {/* This will render Builder.io Fusion content */}
-          <FusionContent 
-            model="page" 
-            theme="dark"
-            fallback={
-              <Box sx={{ py: 4, textAlign: 'center' }}>
-                <Typography color="text.secondary" paragraph>
-                  No Fusion content found. Import a Figma design from Builder.io.
-                </Typography>
-                <MuiButton 
-                  variant="contained" 
-                  href="http://localhost:6006"
-                  target="_blank"
-                >
-                  View Storybook Components
-                </MuiButton>
-              </Box>
-            }
+      <Container maxWidth="sm">
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            minHeight: '100vh',
+            py: 4,
+          }}
+        >
+          <Login
+            onLogin={handleLogin}
+            onCreateAccount={handleCreateAccount}
+            onForgotPassword={handleForgotPassword}
+            showLogo={true}
           />
         </Box>
       </Container>
