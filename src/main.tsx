@@ -47,7 +47,15 @@ const App: React.FC = () => {
 // Only render if we're in a browser environment (not Storybook)
 const rootElement = document.getElementById('root');
 if (rootElement) {
-  ReactDOM.createRoot(rootElement).render(
+  // Store the root instance to avoid creating multiple roots on the same element
+  let root = (rootElement as any)._reactRoot;
+
+  if (!root) {
+    root = ReactDOM.createRoot(rootElement);
+    (rootElement as any)._reactRoot = root;
+  }
+
+  root.render(
     <React.StrictMode>
       <App />
     </React.StrictMode>
