@@ -8,27 +8,19 @@ import { Login } from './components/Login';
 import './builder/init';
 import './builder/components';
 
-// Suppress ResizeObserver loop warning (harmless third-party library warning)
-// This is a known issue with Material-UI and other libraries that use ResizeObserver
+// Suppress ResizeObserver loop warning (benign third-party library warning from MUI/Storybook)
+// This is a known issue: https://github.com/mui/material-ui/issues/24554
 const originalError = console.error;
-beforeEach(() => {
-  console.error = (...args: any[]) => {
-    if (
-      typeof args[0] === 'string' &&
-      args[0].includes('ResizeObserver loop completed with undelivered notifications')
-    ) {
-      return;
-    }
-    originalError.call(console, ...args);
-  };
-});
-
-// Restore console.error after initialization
-if (typeof window !== 'undefined') {
-  window.addEventListener('load', () => {
-    console.error = originalError;
-  });
-}
+console.error = (...args: any[]) => {
+  if (
+    typeof args[0] === 'string' &&
+    args[0].includes('ResizeObserver loop completed with undelivered notifications')
+  ) {
+    // Silently ignore this specific warning - it's harmless
+    return;
+  }
+  originalError.call(console, ...args);
+};
 
 const App: React.FC = () => {
   const handleLogin = (email: string, password: string) => {
